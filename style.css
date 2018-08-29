@@ -223,10 +223,6 @@ body {
   color: #9190ff;
 }
 
-.answers-left-pressed::before {
-  border-color: rgba(145, 144, 255, 1) !important;
-}
-
 .answers-right {
   justify-content: flex-start;
   padding-left: 50px;
