@@ -214,12 +214,17 @@ body {
   align-items: center;
   width: 50%;
   box-sizing: border-box;
+  position: relative;
 }
 
 .answers-left {
   justify-content: flex-end;
   padding-right: 50px;
   color: #9190ff;
+}
+
+.answers-left-pressed::before {
+  border-color: rgba(145, 144, 255, 1) !important;
 }
 
 .answers-right {
@@ -241,15 +246,48 @@ body {
 .answers-left::before {
   margin-right: 15px;
   border-color: rgba(145, 144, 255, 0.6);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='10' width='12' fill='rgba%28145, 144, 255, 0.8%29'%3E%3Cpolygon points='12,0 12,10 0,5' /%3E%3C/svg%3E");
-  background-position: center left 16px;
 }
 
 .answers-right::after {
   margin-left: 15px;
   border-color: rgba(255, 110, 204, 0.6);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='10' width='12' fill='rgba%28255, 110, 204, 0.8%29'%3E%3Cpolygon points='0,0 12,5 0,10' /%3E%3C/svg%3E");
-  background-position: center right 16px;
+}
+
+.answers-left::after,
+.answers-right::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.answers-left::after {
+  border-right:12px solid rgb(145, 144, 255);
+  position: absolute;
+  right: 130px;
+}
+
+.answers-right::before {
+  border-left: 12px solid rgb(255, 110, 204);
+  position: absolute;
+  left: 118px;
+}
+
+.answers-pressed.answers-left::after {
+  border-right-color: #000;
+}
+
+.answers-pressed.answers-right::before {
+  border-left-color: #000;
+}
+
+.answers-pressed.answers-left::before {
+  background: rgb(145, 144, 255);
+}
+
+.answers-pressed.answers-right::after {
+  background: rgb(255, 110, 204);
 }
 
 .game-deck {

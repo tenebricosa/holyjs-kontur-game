@@ -432,7 +432,7 @@ const animateBrick = function(brick) {
   });
 };
 
-const userGoodChoise = (brick, side) => {
+const userGoodChoice = (brick, side) => {
   App.controls.score.textContent = (
     Number(App.controls.score.textContent) +
     (420 - App.info.errorCount * 42)
@@ -453,6 +453,8 @@ const userGoodChoise = (brick, side) => {
   )}px) rotate(${side === 0 ? "" : "-"}45deg)`;
 
   const onSuccessTransitionEnd = function() {
+    App.controls.answersLeft.classList.remove("answers-pressed");
+    App.controls.answersRight.classList.remove("answers-pressed");
     App.info.userSteps++;
     brick.removeEventListener("transitionend", onSuccessTransitionEnd);
     brick.remove();
@@ -472,7 +474,7 @@ function getComputedTranslateY(obj) {
   return mat ? parseFloat(mat[1].split(", ")[5]) : 0;
 }
 
-const userFailChoise = brick => {
+const userFailChoice = brick => {
   App.controls.score.textContent = (
     App.controls.score.textContent -
     App.info.userSteps * 42 * (1 + +App.info.errorCount)
@@ -496,6 +498,8 @@ const userFailChoise = brick => {
   });
 
   const onFailTransitionEnd = function() {
+    App.controls.answersLeft.classList.remove("answers-pressed");
+    App.controls.answersRight.classList.remove("answers-pressed");
     App.info.userSteps++;
     App.info.errorCount++;
     brick.classList.remove("animate");
@@ -527,7 +531,7 @@ const run = function() {
   const task = App.tasks[indexRandomTask];
   if (!task) {
     throw new Error(
-      "Немогу взять таск " + indexRandomTask + ";" + App.tasks.length
+      "Не могу взять таск " + indexRandomTask + ";" + App.tasks.length
     );
   }
 
@@ -539,20 +543,31 @@ const run = function() {
   const brick = createBrick(content, side);
 
   const onArrowKeyDown = function(evt) {
+    const leftArrow = 37;
+    const rightArrow = 39;
+
     // игнорируем любые нажатия кроме стрелки влево вправо
-    if (evt.keyCode !== 37 && evt.keyCode !== 39) {
+    if (evt.keyCode !== leftArrow && evt.keyCode !== rightArrow) {
       return false;
     }
+
+    if (evt.keyCode === leftArrow) {
+        App.controls.answersLeft.classList.add("answers-pressed");
+    }
+    if (evt.keyCode === rightArrow) {
+        App.controls.answersRight.classList.add("answers-pressed");
+    }
+
     // удаляем события?
     brick.removeEventListener("transitionend", onDropTransitionEnd);
     document.removeEventListener("keydown", onArrowKeyDown);
 
     // проверяем правильный ли выбор сдел пользователь
-    const userSide = evt.keyCode === 37 ? 0 : 1;
+    const userSide = evt.keyCode === leftArrow ? 0 : 1;
     if (userSide === side) {
-      userGoodChoise(brick, side);
+      userGoodChoice(brick, side);
     } else {
-      userFailChoise(brick);
+      userFailChoice(brick);
     }
   };
 
