@@ -134,11 +134,6 @@ const initTasks = {
       ["-Infinity", 0]
     ]
   },
-  "true-false": {
-    question: "Чему равно выражение?",
-    answers: ["false", "true"],
-    tasks: []
-  },
   jquery: {
     question: "Это медот jQuery 3.x?",
     answers: ["Нет", "Есть"],
@@ -223,6 +218,54 @@ const initTasks = {
       ['import date from "java.util";', 1],
       ["JavaScript", 1],
       ["ЯваСкрипт", 1]
+    ]
+  },
+  css: {
+    //Если кто-то не верит, пусть читает статью https://ru.hexlet.io/blog/posts/new-and-old-css-units
+    question: "Это единица измерения CSS?",
+    answers: ["Нет", "Да"],
+    tasks: [
+      ["lh", 1],
+      ["rlh", 1],
+      ["vi", 1],
+      ["vb", 1],
+      ["vw", 1],
+      ["vh", 1],
+      ["ic", 1],
+      ["cap", 1],
+      ["turn", 1],
+      ["deg", 1],
+      ["grad", 1],
+      ["rad", 1],
+      ["Q", 1],
+      ["hz", 1],
+      ["khz", 1],
+      ["px", 1],
+      ["em", 1],
+      ["rem", 1],
+      ["cm", 1],
+      ["ex", 1],
+      ["in", 1],
+      ["pt", 1],
+      ["pc", 1],
+      ["vmin", 1],
+      ["mr", 0],
+      ["km", 0],
+      ["m", 0],
+      ["mol", 0],
+      ["cd", 0],
+      ["kg", 0],
+      ["J", 0],
+      ["kat", 0],
+      ["sr", 0],
+      ["μ", 0],
+      ["yd", 0],
+      ["fur", 0],
+      ["mi", 0],
+      ["li", 0],
+      ["rd", 0],
+      ["gal", 0],
+      ["qt", 0]
     ]
   },
   "c#": {
