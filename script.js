@@ -267,6 +267,33 @@ const initTasks = {
       ["gal", 0],
       ["qt", 0]
     ]
+  },
+  "c#": {
+    question: "Скомпилирует ли это C#",
+    answers: ["Да", "Нет"],
+    tasks: [
+      ["var a = 100d;", 0],
+      ["var a = 10, b = 15;", 1],
+      ["var a = new {a = 10, b = 15};", 0],
+      ["foreach(var value of array)", 1],
+      ["new HashSet<int>().Add(10).ToString();", 0],
+      ["var yield = \"no\";", 0],
+      ["int async = 10, await = 15;", 0],
+      ["double x = new object[15];", 1],
+      ["yield break;", 0],
+      ["var a = new[] {1, 2, 3};", 0],
+      ["string 1foo = \"\";", 1],
+      ["new List<int>().Add(10).Add(11);", 1],
+      ["double a = (int) float.Parse(\"10\");", 0],
+      ["var a = [1, 2, 3]", 1],
+      ["new StringBuilder().Append(\"not\").Append(\"compiled\");", 0],
+      ["var a = 10, b = 15;", 1],
+      ["var a = () => 15;", 1],
+      ["Func<byte> a = () => 1000;", 1],
+      ["int async = 10, await = 15;", 0],
+      ["var a = new [1, 2, 3]", 1],
+      ["var a = {a = 10, b = 15};", 1],
+    ]
   }
 };
 
