@@ -133,6 +133,8 @@ body {
 }
 
 .repeat-link {
+  display: block;
+  margin-bottom: 20px;
   padding: 10px 30px;
   font-size: 24px;
   border: 3px solid #fdbc01;
@@ -141,6 +143,7 @@ body {
   font-family: "Stalinist One", cursive;
   background-color: transparent;
   text-decoration: none;
+  cursor: pointer;
 }
 
 /* Game Screen */

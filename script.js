@@ -278,7 +278,6 @@ const initTasks = {
       ["foreach(var value of array)", 1],
       ["new HashSet<int>().Add(10).ToString();", 0],
       ["var yield = \"no\";", 0],
-      ["int async = 10, await = 15;", 0],
       ["double x = new object[15];", 1],
       ["yield break;", 0],
       ["var a = new[] {1, 2, 3};", 0],
@@ -342,6 +341,7 @@ const App = {
     startMenu: document.querySelector(".menu-screen"),
     gameScreen: document.querySelector(".game-screen"),
     startBtn: document.querySelector(".start"),
+    endMenu: document.querySelector(".end-game"),
     deck: document.querySelector(".bricks"),
     limit: document.querySelector(".limit"),
     username: document.querySelector(".username"),
@@ -427,6 +427,28 @@ class HtmlHelper {
     score.textContent = App.controls.score.textContent;
   }
 }
+
+const retry = function() {
+  App.constants.maxSteps = initTasks[App.vars.theme].tasks.length;
+  App.tasks = JSON.parse(JSON.stringify(initTasks[App.vars.theme].tasks));
+  HtmlHelper.hideScores();
+  App.gameId = Date.now();
+  App.controls.startMenu.classList.add("hidden");
+  App.controls.endMenu.classList.add("hidden");
+  App.controls.gameScreen.classList.remove("hidden");
+  App.controls.counter.classList.remove("hidden");
+
+  var readyCounter = 5;
+  var interval = setInterval(() => {
+    readyCounter--;
+    App.controls.counter.textContent = readyCounter;
+    if (readyCounter < 1) {
+      App.controls.counter.classList.add("hidden");
+      clearInterval(interval);
+      run();
+    }
+  }, 1000);
+};
 
 const nextEvent = function() {
   if (
