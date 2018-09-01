@@ -229,8 +229,8 @@ body {
   color: #ff6ecc;
 }
 
-.answers-left::before,
-.answers-right::after {
+.answers-left::after,
+.answers-right::before {
   content: "";
   width: 46px;
   height: 40px;
@@ -239,18 +239,18 @@ body {
   background-repeat: no-repeat;
 }
 
-.answers-left::before {
-  margin-right: 15px;
+.answers-left::after {
+  margin-left: 15px;
   border-color: rgba(145, 144, 255, 0.6);
 }
 
-.answers-right::after {
-  margin-left: 15px;
+.answers-right::before {
+  margin-right: 15px;
   border-color: rgba(255, 110, 204, 0.6);
 }
 
-.answers-left::after,
-.answers-right::before {
+.answers-left::before,
+.answers-right::after {
   content: "";
   width: 0;
   height: 0;
@@ -258,31 +258,31 @@ body {
   border-bottom: 5px solid transparent;
 }
 
-.answers-left::after {
+.answers-left::before {
   border-right:12px solid rgb(145, 144, 255);
   position: absolute;
-  right: 130px;
+  right: 70px;
 }
 
-.answers-right::before {
+.answers-right::after {
   border-left: 12px solid rgb(255, 110, 204);
   position: absolute;
-  left: 118px;
-}
-
-.answers-pressed.answers-left::after {
-  border-right-color: #000;
-}
-
-.answers-pressed.answers-right::before {
-  border-left-color: #000;
+  left: 71px;
 }
 
 .answers-pressed.answers-left::before {
-  background: rgb(145, 144, 255);
+  border-right-color: #000;
 }
 
 .answers-pressed.answers-right::after {
+  border-left-color: #000;
+}
+
+.answers-pressed.answers-left::after {
+  background: rgb(145, 144, 255);
+}
+
+.answers-pressed.answers-right::before {
   background: rgb(255, 110, 204);
 }
 
