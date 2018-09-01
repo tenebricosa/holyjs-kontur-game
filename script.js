@@ -294,6 +294,27 @@ const initTasks = {
       ["var a = new [1, 2, 3]", 1],
       ["var a = {a = 10, b = 15};", 1],
     ]
+  },
+  "c#History": {
+    question: "Когда появился такой синтаксис в C#?",
+    answers: ["C# 6.0", "C# 7.0"],
+    tasks: [
+      ["SomeMethod(out var variable);", 1],
+      ["case int digit:", 1],
+      ["nameof(foo);", 0],
+      ["public const int Four = 0b0100;", 1],
+      ["catch(Exception e) when (e.Message = \"\")", 0],
+      ["var foo = (a: 10, b: 30);", 1],
+      ["foo?.Bar();", 0],
+      ["var (a, b) = foo;", 1],
+      ["var bar = Method() ?? throw new Exception(\"...\");", 1],
+      ["return ref variable;", 1],
+      ["$\"{foo} {bar}\"", 0],
+      ["if(foo is int bar)", 1],
+      ["public int Foo => 10;", 0],
+      ["var a = 1_000_000", 1],
+      ["using static System.Math;", 0],
+    ]
   }
 };
 
