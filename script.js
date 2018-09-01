@@ -269,7 +269,7 @@ const initTasks = {
     ]
   },
   "c#": {
-    question: "Скомпилирует ли это C#",
+    question: "Скомпилирует ли это C#?",
     answers: ["Да", "Нет"],
     tasks: [
       ["var a = 100d;", 0],
