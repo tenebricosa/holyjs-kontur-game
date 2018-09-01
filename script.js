@@ -269,7 +269,7 @@ const initTasks = {
     ]
   },
   "c#": {
-    question: "Скомпилирует ли это C#",
+    question: "Скомпилирует ли это C#?",
     answers: ["Да", "Нет"],
     tasks: [
       ["var a = 100d;", 0],
@@ -296,7 +296,7 @@ const initTasks = {
     ]
   },
   "c#History": {
-    question: "Когда появился такой синтаксис в C#?",
+    question: "C# 6.0 или C# 7.0?",
     answers: ["C# 6.0", "C# 7.0"],
     tasks: [
       ["SomeMethod(out var variable);", 1],
